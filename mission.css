@@ -1,0 +1,13 @@
+/* MISSION PAGE STYLES */
+.pg-mission-section { padding: 100px 0; background: var(--color-white); }
+.pg-mission-alt { background: var(--color-bg-alt); }
+.pg-mission-container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 64px; flex-wrap: wrap; }
+.pg-mission-container.reverse { flex-direction: row-reverse; }
+.pg-mission-img-col { flex: 1; min-width: 300px; }
+.pg-mission-img { width: 100%; aspect-ratio: 4/3; background: var(--gradient-hero); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 4rem; box-shadow: var(--shadow-md); transition: transform var(--transition-normal); }
+.pg-mission-img:hover { transform: scale(1.02); }
+.pg-mission-content { flex: 1; min-width: 300px; }
+.pg-mission-tag { display: inline-block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--color-primary); background: var(--color-bg-alt); padding: 6px 16px; border-radius: var(--radius-full); margin-bottom: 16px; }
+.pg-mission-title { font-family: var(--font-display); font-size: clamp(2rem, 3vw, 2.5rem); font-weight: 700; margin-bottom: 20px; line-height: 1.2; }
+.pg-mission-desc { font-size: 1.1rem; color: var(--color-text-light); line-height: 1.8; }
+@media (max-width: 768px) { .pg-mission-container, .pg-mission-container.reverse { flex-direction: column; } }

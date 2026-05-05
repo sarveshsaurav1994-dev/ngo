@@ -1,0 +1,105 @@
+/* ==================== PRESS RELEASES SPECIFIC STYLES ==================== */
+/* All classes prefixed with 'press-' to prevent overlap */
+
+.press-page-header {
+  padding: 140px 24px 80px;
+  background: var(--gradient-hero);
+  text-align: center;
+}
+.press-page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+.press-page-header p {
+  font-size: 1.15rem;
+  color: var(--color-text-light);
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.press-section-block {
+  padding: 90px 0;
+  border-bottom: 1px solid var(--color-bg-alt);
+}
+.press-section-block.press-alt {
+  background: var(--color-bg-alt);
+}
+.press-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 56px;
+  align-items: center;
+}
+.press-visual .press-img {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  transition: transform var(--transition-normal);
+}
+.press-visual .press-img:hover {
+  transform: scale(1.02);
+}
+
+.press-content .press-date {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-lighter);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.press-content .press-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+.press-text {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--color-text-light);
+  margin-bottom: 24px;
+}
+.press-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap var(--transition-fast);
+}
+.press-link:hover {
+  gap: 10px;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .press-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .press-section-block {
+    padding: 60px 0;
+  }
+}
+@media (max-width: 480px) {
+  .press-page-header {
+    padding: 110px 20px 50px;
+  }
+  .press-content .press-title {
+    font-size: 1.6rem;
+  }
+}

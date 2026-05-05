@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Education Impact Stories — Asha Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="story.css" />
+<style>
+  /* Floating Donate Button - sticks on right side while scrolling */
+  .floating-donate-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 30%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+  }
+  .floating-donate-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+    background: linear-gradient(135deg, #f7931e, #ff6b35);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+  }
+  .floating-donate-btn:active {
+    transform: translateY(-50%) scale(0.98);
+  }
+  @media (max-width: 768px) {
+    .floating-donate-btn {
+      padding: 10px 18px;
+      font-size: 1rem;
+      right: 12px;
+      bottom: 20%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== NAVIGATION (same as our_work.html) ==================== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="main.html" class="nav-logo">
+      <img src="ngo_logo.jpg" alt="Logo" class="logo-image" />
+      <span class="logo-text">
+        <span class="logo-main">ASHA VATSLAYA</span>
+        <span class="logo-sub">FOUNDATION</span>
+      </span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="main.html" class="nav-link">Home</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-link dropdown-toggle" data-dropdown="about">About Us ▾</button>
+        <ul class="dropdown-menu" id="aboutDropdown">
+          <li><a href="mission.html" class="dropdown-item">Our Mission</a></li>
+          <li><a href="team.html" class="dropdown-item">Our Team</a></li>
+          <li><a href="values.html" class="dropdown-item">Core Values</a></li>
+        </ul>
+      </li>
+      <li><a href="our_work.html" class="nav-link">Our Work</a></li>
+       <li class="nav-dropdown">
+        <button class="nav-link dropdown-toggle" data-dropdown="campaigns">Campaigns ▾</button>
+        <ul class="dropdown-menu" id="campaignsDropdown">
+          <li><a href="shiksha-abhiyan.html" class="dropdown-item">📚 Educate a Child</a></li>
+          <li><a href="swasthya-seva.html" class="dropdown-item">🏥 Health for All</a></li>
+          <li><a href="ghar-ghar-umeed.html" class="dropdown-item">🏠 Safe Homes</a></li>
+          <li><a href="sankat-sahayata.html" class="dropdown-item">🚨 Emergency Relief</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <button class="nav-link dropdown-toggle" data-dropdown="media">Media Center ▾</button>
+        <ul class="dropdown-menu" id="mediaDropdown">
+          <li><a href="press-releases.html" class="dropdown-item">📰 Press Releases</a></li>
+          <li><a href="photo-gallery.html" class="dropdown-item">📷 Photo Gallery</a></li>
+        </ul>
+      </li>
+      <li><a href="stories.html" class="nav-link">Impact Stories</a></li>
+      <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+      <li><a href="#donate" class="nav-link donate-nav-btn">Donate</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="main.html" class="mobile-link">🏠 Home</a>
+    <div class="mobile-submenu">
+      <button class="mobile-submenu-toggle" data-target="mobileAbout">About Us ▾</button>
+      <ul class="mobile-submenu-list" id="mobileAbout">
+        <li><a href="mission.html" class="mobile-link">Our Mission</a></li>
+        <li><a href="team.html" class="mobile-link">Our Team</a></li>
+        <li><a href="values.html" class="mobile-link">Core Values</a></li>
+      </ul>
+    </div>
+    <a href="our_work.html" class="mobile-link">💼 Our Work</a>
+    <div class="mobile-submenu">
+      <button class="mobile-submenu-toggle" data-target="mobileCampaigns">Campaigns ▾</button>
+      <ul class="mobile-submenu-list" id="mobileCampaigns">
+        <li><a href="shiksha-abhiyan.html" class="mobile-link">📚 Educate a Child</a></li>
+        <li><a href="swasthya-seva.html" class="mobile-link">🏥 Health for All</a></li>
+        <li><a href="ghar-ghar-umeed.html" class="mobile-link">🏠 Safe Homes</a></li>
+        <li><a href="sankat-sahayata.html" class="mobile-link">🚨 Emergency Relief</a></li>
+      </ul>
+    </div>
+    <div class="mobile-submenu">
+      <button class="mobile-submenu-toggle" data-target="mobileMedia">Media Center ▾</button>
+      <ul class="mobile-submenu-list" id="mobileMedia">
+        <li><a href="press-releases.html" class="mobile-link">📰 Press Releases</a></li>
+        <li><a href="photo-gallery.html" class="mobile-link">📷 Photo Gallery</a></li>
+      </ul>
+    </div>
+    <a href="stories.html" class="mobile-link">✨ Impact Stories</a>
+    <a href="contact.html" class="mobile-link">📞 Contact Us</a>
+    <a href="#donate" class="mobile-link donate-nav-btn">💛 Donate</a>
+  </div>
+</nav>
+<button class="floating-donate-btn" id="floatingDonateBtn">
+  💛 Donate Now
+</button>
+
+<main>
+  <div class="story-page-header">
+    <div class="container">
+      <h1>🍲 Food & Nutrition: <span class="text-gradient">Ending Hunger</span></h1>
+      <p>Ration kits, cash assistance, and hot meals – restoring dignity and hope.</p>
+    </div>
+  </div>
+
+  <!-- Story 1: Meena Devi – The Night Without Food -->
+  <div class="story-block">
+    <div class="story-container">
+      <div class="story-img-col">
+        <div class="story-img">
+        <img src="images/impact_stories/poverty_relief/story_relief_2.jpeg" alt="Children learning in classroom">
+      </div>
+      </div>
+      <div class="story-content">
+        <span class="story-category">Food Security • Ration Support</span>
+        <h2 class="story-title">Meena Devi: The night without food</h2>
+        <div class="story-problem"><strong>Problem:</strong> Meena’s husband, a daily wage laborer, had no work for weeks due to rains. Her kitchen was empty. Her children asked, “Maa, khana kab milega?”</div>
+        <div class="story-help"><strong>How we helped:</strong> Asha Vatsalya Foundation provided a full ration kit (rice, dal, oil, salt) and ₹2,000 cash support.</div>
+        <div class="story-outcome"><strong>Outcome:</strong> Smoke rose again from her kitchen. Her children slept with full stomachs after days of hunger.</div>
+        <div class="story-quote">“I held the ration bag and cried. It was not just food – it was hope.” – Meena Devi</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 2: Ramesh Mahato – A Father Who Stopped Eating -->
+  <div class="story-block">
+    <div class="story-container">
+      <div class="story-img-col">
+        <div class="story-img">
+          <img src="images/impact_stories/poverty_relief/story_relief_1.jpeg" alt="Children learning in classroom">
+      </div>
+      </div>
+      <div class="story-content">
+        <span class="story-category">Food Security • Family Support</span>
+        <h2 class="story-title">Ramesh Mahato: A father who stopped eating</h2>
+        <div class="story-problem"><strong>Problem:</strong> Work stopped suddenly, and Ramesh had no savings. He began skipping meals so his wife and children could eat – surviving only on water and tea for days.</div>
+        <div class="story-help"><strong>How we helped:</strong> Volunteers noticed his weak condition. We provided a full ration kit and ₹2,500 cash assistance.</div>
+        <div class="story-outcome"><strong>Outcome:</strong> That night, Ramesh ate with his family after many days. His son smiled and said, “Papa, aaj aap bhi khana khao.”</div>
+        <div class="story-quote">“It was not just food – it was dignity restored.” – Ramesh Mahato</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 3: Sunita Kumari – Widow Fighting Alone -->
+  <div class="story-block">
+    <div class="story-container">
+      <div class="story-img-col">
+        <div class="story-img">
+          <img src="images/impact_stories/poverty_relief/story_relief_4.jpg" alt="Children learning in classroom">
+      </div>
+      </div>
+      <div class="story-content">
+        <span class="story-category">Food Security • Widow Support</span>
+        <h2 class="story-title">Sunita Kumari: A widow fighting alone</h2>
+        <div class="story-problem"><strong>Problem:</strong> After losing her husband, Sunita had no income. She often borrowed food from neighbors, knowing she could never repay.</div>
+        <div class="story-help"><strong>How we helped:</strong> We provided monthly ration support and ₹1,500 cash to help manage daily expenses.</div>
+        <div class="story-outcome"><strong>Outcome:</strong> For the first time in months, Sunita cooked without fear of tomorrow. Her daughters started going to bed with hope.</div>
+        <div class="story-quote">“Now I can feed my children without shame.” – Sunita Kumari</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 5: Murmu Family – Flood Took Everything -->
+  <div class="story-block">
+    <div class="story-container">
+      <div class="story-img-col">
+        <div class="story-img">
+           <img src="images/impact_stories/poverty_relief/story_relief_3.webp" alt="Children learning in classroom">
+      </div>
+      </div>
+      <div class="story-content">
+        <span class="story-category">Emergency Relief • Disaster Support</span>
+        <h2 class="story-title">Murmu family: When floods took everything</h2>
+        <div class="story-problem"><strong>Problem:</strong> Heavy floods washed away their mud house, stored grains, clothes, and belongings. They survived on dry food from neighbors.</div>
+        <div class="story-help"><strong>How we helped:</strong> We provided emergency ration kits and ₹3,000 cash relief to help them restart.</div>
+        <div class="story-outcome"><strong>Outcome:</strong> The first meal they cooked after the disaster was the beginning of rebuilding their lives.</div>
+        <div class="story-quote">“Asha came when we had nothing. Now we have something to hold onto.” – Murmu family</div>
+      </div>
+    </div>
+  </div>
+<!-- DONATE SECTION (identical to our_work.html) -->
+<section class="section donate-section" id="donate"><div class="container"><div class="section-header reveal"><p class="section-tag">Make a Difference</p><h2 class="section-title">Support a <span class="text-gradient">Life Today</span></h2><p class="section-description">Every rupee counts. 100% goes directly to impact.</p></div><div class="donate-container reveal"><div class="trust-indicators"><div class="trust-badge"><span class="trust-icon">🔒</span><span>Secure Donation</span></div><div class="trust-badge"><span class="trust-icon">💯</span><span>100% Funds to Impact</span></div></div>
+  
+  <div class="donate-amounts">
+          <button class="amount-btn" data-amount="1000">
+            <span class="currency">₹</span>1,000
+          </button>
+          <button class="amount-btn active" data-amount="2000">
+            <span class="currency">₹</span>2,000
+          </button>
+          <button class="amount-btn" data-amount="3000">
+            <span class="currency">₹</span>3,000
+          </button>
+          <button class="amount-btn" data-amount="5000">
+            <span class="currency">₹</span>5,000
+          </button>
+          <button class="amount-btn" data-amount="10000">
+            <span class="currency">₹</span>10,000
+          </button>
+          <button class="amount-btn" data-amount="20000">
+          <span class="currency">₹</span>20,000
+          </button>
+        </div>
+  <div class="custom-amount"><label>Or enter custom:</label><div class="custom-input-wrapper"><span class="input-currency">₹</span><input type="number" id="customAmount" placeholder="Amount" min="1"/></div></div><div class="selected-amount-display"><span>You are donating:</span><span class="selected-amount" id="selectedAmountDisplay">₹1000</span></div><button class="btn btn-primary btn-xl pay-btn" id="payBtn"><span class="btn-icon">💛</span><span class="btn-text">Pay Now</span><span class="btn-amount" id="payBtnAmount">₹500</span></button></div></div></section>
+
+<!-- FOOTER (same as our_work.html) -->
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="ngo_logo.jpg" alt="Logo" class="logo-image-footer" /><span class="logo-text"><span class="logo-main">ASHA VATSLAYA</span><span class="logo-sub">FOUNDATION</span></span></div><div class="footer-links"><h4>Quick Links</h4><a href="mission.html">Our Mission</a><a href="team.html">Our Team</a><a href="values.html">Core Values</a></div><div class="footer-links"><h4>Get Involved</h4><a href="our_work.html">Our Work</a><a href="campaigns.html">Campaigns</a><a href="contact.html">Volunteer</a></div><div class="footer-contact"><h4>Contact</h4><p><strong>📍</strong> Shivam Colony, Dhanbad<br/>Pin - 828109</p><p><strong>📧</strong> info@ashavatslaya.org</p></div></div><div class="footer-bottom"><p>© 2026 Asha Vatslaya Foundation. All rights reserved.</p></div></div></footer>
+
+<!-- PAYMENT MODAL (same as our_work.html) -->
+<div class="modal-overlay" id="paymentModal"><div class="modal-content"><button class="modal-close" id="modalClose">&times;</button><div class="modal-steps"><span class="modal-step-indicator active" data-step="1"></span><span class="modal-step-indicator" data-step="2"></span><span class="modal-step-indicator" data-step="3"></span></div><div class="modal-step active" id="step1"><div class="modal-icon">📝</div><h3>Complete Your Donation</h3><p class="modal-amount" id="step1Amount">₹1,500</p><form class="donor-form" id="donorForm"><div class="form-row"><div class="form-group"><label>Full Name *</label><input type="text" id="donorName" required/></div><div class="form-group"><label>Email *</label><input type="email" id="donorEmail" required/></div></div><div class="form-row"><div class="form-group"><label>Phone *</label><input type="tel" id="donorPhone" required pattern="[0-9]{10,15}"/></div><div class="form-group"><label>State</label><select id="donorState"><option>Bihar</option><option>Jharkhand</option><option>Delhi</option><option>Other</option></select></div></div><div class="form-actions"><button type="button" class="btn btn-secondary" id="modalCloseBtn">Cancel</button><button type="submit" class="btn btn-primary">Continue →</button></div></form></div><div class="modal-step" id="step2"><span class="thank-you-icon">🎉</span><h3 class="thank-you-title">Thank You, <span id="thankYouName">Donor</span>!</h3><div class="thank-you-details"><p><strong>Amount:</strong> <span id="thankYouAmount">₹1,500</span></p><p><strong>Email:</strong> <span id="thankYouEmail">your@email.com</span></p></div><div class="form-actions"><button type="button" class="btn btn-secondary" id="backToFormBtn">← Edit</button><button type="button" class="btn btn-primary" id="proceedToPayBtn">Proceed →</button></div></div><div class="modal-step" id="step3"><div class="modal-icon">🔒</div><h3>Secure Payment</h3><p class="modal-amount" id="step3Amount">₹1,500</p><button class="btn btn-primary btn-xl" id="finalPayBtn"><span class="btn-icon">💳</span> Pay Now</button><p class="payment-note">🔐 Encrypted • 80G Applicable • 100% Impact</p></div></div></div>
+
+<script src="script.js"></script>
+ <!-- ==================== JAVASCRIPT ==================== -->
+  <script src="script.js"></script>
+  <script>
+  (function() {
+    const donateBtn = document.getElementById('floatingDonateBtn');
+    if (donateBtn) {
+      donateBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const donateSection = document.getElementById('donate');
+        if (donateSection) {
+          donateSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          // fallback: try to find any element with id="donate"
+          const fallback = document.querySelector('#donate, .donate-section, [href="#donate"]');
+          if (fallback && fallback.id === 'donate') fallback.scrollIntoView({ behavior: 'smooth' });
+          else window.location.href = '#donate';
+        }
+      });
+    }
+  })();
+</script>
+</body>
+</html>

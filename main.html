@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Asha Foundation — Bringing Hope, Changing Lives. We help the poor and needy through education, healthcare, food, and shelter." />
+  <title>Asha Foundation — Bringing Hope, Changing Lives</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+  /* Floating Donate Button - sticks on right side while scrolling */
+  .floating-donate-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 30%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+  }
+  .floating-donate-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+    background: linear-gradient(135deg, #f7931e, #ff6b35);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+  }
+  .floating-donate-btn:active {
+    transform: translateY(-50%) scale(0.98);
+  }
+  @media (max-width: 768px) {
+    .floating-donate-btn {
+      padding: 10px 18px;
+      font-size: 1rem;
+      right: 12px;
+      bottom: 20%;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ==================== SCROLL PROGRESS BAR ==================== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+<!-- Floating Donate Button -->
+<button class="floating-donate-btn" id="floatingDonateBtn">
+  💛 Donate Now
+</button>
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+        <a href="#home" class="nav-logo">
+        <img src="ngo_logo.jpg" alt="Asha Vatslaya Foundation Logo" class="logo-image" />
+        <span class="logo-text">
+            <span class="logo-main">ASHA VATSLAYA</span>
+            <span class="logo-sub">FOUNDATION</span>
+        </span>
+      </a>
+      <!-- Desktop Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        
+        <!-- About Us Dropdown -->
+        <!-- About Us Dropdown -->
+<li class="nav-dropdown">
+  <button class="nav-link dropdown-toggle" data-dropdown="about">About Us ▾</button>
+  <ul class="dropdown-menu" id="aboutDropdown">
+    <li><a href="mission.html" class="dropdown-item">Our Mission</a></li>
+    <li><a href="team.html" class="dropdown-item">Our Team</a></li>
+    <li><a href="values.html" class="dropdown-item">Core Values</a></li>
+  </ul>
+</li>
+
+<!-- Our Work -->
+<li><a href="our_work.html" class="nav-link">Our Work</a></li>
+
+<!-- Campaigns Dropdown -->
+<li class="nav-dropdown">
+  <button class="nav-link dropdown-toggle" data-dropdown="campaigns">Campaigns ▾</button>
+  <ul class="dropdown-menu" id="campaignsDropdown">
+  <li><a href="shiksha-abhiyan.html" class="dropdown-item">📚 Shiksha Abhiyan</a></li>
+  <li><a href="swasthya-seva.html" class="dropdown-item">🏥 Swasthya Seva</a></li>
+  <li><a href="ghar-ghar-umeed.html" class="dropdown-item">🏠 Ghar Ghar Umeed</a></li>
+  <li><a href="sankat-sahayata.html" class="dropdown-item">🚨 Sankat Sahayata</a></li>
+</ul>
+</li>
+
+<!-- Media Center Dropdown -->
+<li class="nav-dropdown">
+  <button class="nav-link dropdown-toggle" data-dropdown="media">Media Center ▾</button>
+  <ul class="dropdown-menu" id="mediaDropdown">
+    <li><a href="press-releases.html" class="dropdown-item">📰 Press Releases</a></li>
+    <li><a href="photo-gallery.html" class="dropdown-item">📷 Photo Gallery</a></li>
+  </ul>
+</li>
+
+<!-- Stories -->
+<li><a href="stories.html" class="nav-link">Impact Stories</a></li>
+
+<!-- Contact Us -->
+<li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        
+        <!-- Donate Button -->
+        <li><a href="#donate" class="nav-link donate-nav-btn" data-section="donate">Donate</a></li>
+      </ul>
+
+      <!-- Mobile Hamburger -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home" class="mobile-link" data-section="home">🏠 Home</a>
+      
+      <!-- Mobile About Submenu -->
+      <div class="mobile-submenu">
+        <button class="mobile-submenu-toggle" data-target="mobileAbout">About Us ▾</button>
+        <ul class="mobile-submenu-list" id="mobileAbout">
+          <li><a href="#about" class="mobile-link" data-section="about">Our Mission</a></li>
+          <li><a href="#team" class="mobile-link" data-section="team">Our Team</a></li>
+          <li><a href="#values" class="mobile-link" data-section="values">Core Values</a></li>
+        </ul>
+      </div>
+      
+      <a href="#our_work" class="mobile-link" data-section="our_work">💼 Our Work</a>
+      
+      <!-- Mobile Campaigns Submenu -->
+      <div class="mobile-submenu">
+        <button class="mobile-submenu-toggle" data-target="mobileCampaigns">Campaigns ▾</button>
+        <ul class="mobile-submenu-list" id="mobileCampaigns">
+        <li><a href="shiksha-abhiyan.html" class="mobile-link">📚 Shiksha Abhiyan</a></li>
+        <li><a href="swasthya-seva.html" class="mobile-link">🏥 Swasthya Seva</a></li>
+        <li><a href="ghar-ghar-umeed.html" class="mobile-link">🏠 Ghar Ghar Umeed</a></li>
+        <li><a href="sankat-sahayata.html" class="mobile-link">🚨 Sankat Sahayata</a></li>
+      </ul>
+      </div>
+      <!-- Mobile Media Submenu -->
+    <div class="mobile-submenu">
+      <button class="mobile-submenu-toggle" data-target="mobileMedia">Media Center ▾</button>
+      <ul class="mobile-submenu-list" id="mobileMedia">
+        <li><a href="press-releases.html" class="mobile-link">📰 Press Releases</a></li>
+        <li><a href="photo-gallery.html" class="mobile-link">📷 Photo Gallery</a></li>
+      </ul>
+    </div>
+      
+      <a href="#stories" class="mobile-link" data-section="stories">✨ Impact Stories</a>
+      <a href="#contact" class="mobile-link" data-section="contact">📞 Contact Us</a>
+      <a href="#donate" class="mobile-link donate-nav-btn" data-section="donate">💛 Donate</a>
+    </div>
+    <div class="moving-banner">
+    <div class="banner-track">
+    <span class="banner-text">Hare Rama Hare Krishna ✦ Hare Rama Hare Krishna ✦</span>
+    <span class="banner-text">Hare Rama Hare Krishna ✦ Hare Rama Hare Krishna ✦</span>
+    <span class="banner-text">Hare Rama Hare Krishna ✦ Hare Rama Hare Krishna ✦</span>
+    <span class="banner-text">Hare Rama Hare Krishna ✦ Hare Rama Hare Krishna ✦</span>
+  </div>
+  </div>
+  </nav>
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero" id="home">
+    <!-- Decorative floating shapes -->
+    <div class="hero-shape hero-shape-1"></div>
+    <div class="hero-shape hero-shape-2"></div>
+    <div class="hero-shape hero-shape-3"></div>
+
+    <div class="hero-content">
+     <p class="hero-subtitle fade-in">Asha Vatslaya Foundation</p>
+      <h1 class="hero-title fade-in">
+        Bringing Hope,<br />
+        <span class="text-gradient">Changing Lives</span>
+      </h1>
+      <p class="hero-description fade-in">
+        Every day, millions struggle without food, education, or shelter.
+        We believe no one should face life's hardest battles alone.
+        Your kindness can rewrite someone's story.
+      </p>
+      <div class="hero-cta fade-in">
+        <a href="#donate" class="btn btn-primary btn-lg">
+          <span class="btn-icon">💛</span> Support a Life
+        </a>
+        <a href="#stories" class="btn btn-outline btn-lg">See Our Impact</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT US SECTION ==================== -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+  <div class="work-images-grid">
+  <a href="photo-gallery.html#education" class="work-image-card">
+    <div class="placeholder-icon">📚</div>
+    <p>Education & Skill Development</p>
+  </a>
+  <a href="photo-gallery.html#healthcare" class="work-image-card">
+    <div class="placeholder-icon">🏥</div>
+    <p>Healthcare & Medical Aid</p>
+  </a>
+  <a href="photo-gallery.html#welfare" class="work-image-card">
+    <div class="placeholder-icon">🤝</div>
+    <p>Social Welfare & Poverty Relief</p>
+  </a>
+  <a href="photo-gallery.html#agriculture" class="work-image-card">
+    <div class="placeholder-icon">🌾</div>
+    <p>Agriculture & Rural Development</p>
+  </a>
+  <a href="photo-gallery.html#youth" class="work-image-card">
+    <div class="placeholder-icon">👥</div>
+    <p>Youth & Community Development</p>
+  </a>
+  <a href="photo-gallery.html#culture" class="work-image-card">
+    <div class="placeholder-icon">🎨</div>
+    <p>Arts, Culture & Heritage</p>
+  </a>
+  <a href="photo-gallery.html#shelter" class="work-image-card">
+    <div class="placeholder-icon">🏘️</div>
+    <p>Shelter & Infrastructure Support</p>
+  </a>
+  <a href="photo-gallery.html#training" class="work-image-card">
+    <div class="placeholder-icon">💼</div>
+    <p>Training & Employment Programs</p>
+  </a>
+</div>
+</div>
+        <div class="about-text reveal">
+          <p class="section-tag">Why We Exist</p>
+          <h2 class="section-title">
+            Millions Need <span class="text-gradient">Our Help</span>
+          </h2>
+          <p class="section-description">
+            In a world of abundance, it's heartbreaking that millions still go to bed hungry,
+            children miss school, and families lack basic shelter. Asha Foundation was born
+            from a simple belief — <strong>everyone deserves a chance at a dignified life.</strong>
+          </p>
+          <p class="section-description">
+            We don't just provide aid; we build pathways to self-reliance. Every rupee you
+            donate goes directly toward transforming lives — not overheads.
+          </p>
+          <div class="about-stats">
+            <div class="mini-stat">
+              <span class="mini-stat-number">12+</span>
+              <span class="mini-stat-label">Years of Service</span>
+            </div>
+            <div class="mini-stat">
+              <span class="mini-stat-number">50+</span>
+              <span class="mini-stat-label">Communities Reached</span>
+            </div>
+            <div class="mini-stat">
+              <span class="mini-stat-number">100%</span>
+              <span class="mini-stat-label">Funds to Impact</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TEAM SECTION (New) ==================== -->
+  <section class="section team-section" id="team" style="background: var(--color-bg-alt);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Who We Are</p>
+        <h2 class="section-title">Meet Our <span class="text-gradient">Team</span></h2>
+        <p class="section-description">
+          Dedicated professionals and volunteers working together to create lasting change.
+        </p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <img src="images/sarvesh.jpeg" alt="Mr. Sarvesh Saurav" class="team-avatar" />
+          <h4>Mr. Sarvesh Saurav</h4>
+          <p class="team-role">Founder & Settlor</p>
+          <p class="team-bio"></p>
+        </div>
+        <div class="team-card reveal">
+          <img src="images/Subhendra_Saurav.jpg" alt="Mr. Subhendra Saurav" class="team-avatar" />
+          <h4>Mr. Subhendra Saurav</h4>
+          <p class="team-role">Trustee & Secretary and Founder of Asha Manpower Group</p>
+          <p class="team-bio"></p>
+        </div>
+        <div class="team-card reveal">
+        <img src="images/Shashi_Bhushan_lall.jpeg" alt="Mr. Shashi Bhushan Lall" class="team-avatar" />
+        <h4>Mr. Shashi Bhushan Lall</h4>
+        <p class="team-role">Trustee & Treasurer and retired government employee</p>
+        <p class="team-bio"></p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VALUES SECTION (New) ==================== -->
+  <section class="section values-section" id="values">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Our Guiding Principles</p>
+        <h2 class="section-title">Core <span class="text-gradient">Values</span></h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <span class="value-icon">❤️</span>
+          <h4>Compassion</h4>
+          <p>We lead with empathy, treating every individual with dignity and respect.</p>
+        </div>
+        <div class="value-card reveal">
+          <span class="value-icon">🔍</span>
+          <h4>Transparency</h4>
+          <p>100% of donations go to impact. We publish detailed reports on fund usage.</p>
+        </div>
+        <div class="value-card reveal">
+          <span class="value-icon">🤝</span>
+          <h4>Collaboration</h4>
+          <p>We partner with local communities to create sustainable, culturally appropriate solutions.</p>
+        </div>
+        <div class="value-card reveal">
+          <span class="value-icon">🌱</span>
+          <h4>Sustainability</h4>
+          <p>We focus on empowering people to become self-reliant, not dependent on aid.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== OUR WORK SECTION ==================== -->
+  <section class="section work-section" id="our_work">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">What We Do</p>
+        <h2 class="section-title">Fields We <span class="text-gradient">Transform</span></h2>
+        <p class="section-description">
+          We work across four critical areas to create lasting change in the lives of the underprivileged.
+        </p>
+      </div>
+
+      <div class="work-cards-grid">
+  <div class="work-card reveal">
+    <div class="card-icon">📚</div>
+    <h3 class="card-title">Education & Skill Development</h3>
+    <p class="card-description">Free coaching, digital literacy, vocational training, and scholarships to empower children and youth.</p>
+   <div class="card-stat"><span class="stat-number">100+</span> <span class="stat-label">Students Enrolled</span></div>
+  </div>
+  <div class="work-card reveal">
+    <div class="card-icon">🏥</div>
+    <h3 class="card-title">Healthcare & Medical Aid</h3>
+    <p class="card-description">Free health camps, medicines, ambulance support, and surgeries for underprivileged families.</p>
+    <div class="card-stat"><span class="stat-number">50+</span> <span class="stat-label">Patients Treated</span></div>
+  </div>
+  <div class="work-card reveal">
+    <div class="card-icon">🤲</div>
+    <h3 class="card-title">Social Welfare & Poverty Relief</h3>
+    <p class="card-description">Ration distribution, old age support, disability aid, and emergency cash transfers.</p>
+    <div class="card-stat"><span class="stat-number">100+</span> <span class="stat-label">Families Supported</span></div>
+  </div>
+  <div class="work-card reveal">
+    <div class="card-icon">🌾</div>
+    <h3 class="card-title">Agriculture & Rural Development</h3>
+    <p class="card-description">Farmer training, organic farming, irrigation support, and seed distribution.</p>
+    <div class="card-stat"><span class="stat-number">50+</span> <span class="stat-label">Farmers Helped</span></div>
+  </div>
+  <div class="work-card reveal">
+    <div class="card-icon">👥</div>
+    <h3 class="card-title">Youth & Community Development</h3>
+    <p class="card-description">Leadership camps, sports, mentorship, and community building initiatives.</p>
+    <div class="card-stat"><span class="stat-number">100+</span> <span class="stat-label">Youth Engaged</span></div>
+  </div>
+  <div class="work-card reveal">
+    <div class="card-icon">🎨</div>
+    <h3 class="card-title">Arts, Culture & Heritage</h3>
+    <p class="card-description">Preserving local art forms, folk music, handicraft workshops, and cultural festivals.</p>
+   <div class="card-stat"><span class="stat-number">25+</span><span class="stat-label">Projects</span></div>
+  </div>
+  <div class="work-card reveal">
+    <div class="card-icon">🏘️</div>
+    <h3 class="card-title">Shelter & Infrastructure Support</h3>
+    <p class="card-description">Building pucca homes, repairing slums, community toilets, and clean water systems.</p>
+    <div class="card-stat"><span class="stat-number">100+</span> <span class="stat-label">Homes Built/Renovated</span></div>
+  </div>
+  <div class="work-card reveal">
+    <div class="card-icon">💼</div>
+    <h3 class="card-title">Training & Employment Programs</h3>
+    <p class="card-description">Skill development, resume building, job placement drives, and entrepreneurship support.</p>
+    <div class="card-stat"><span class="stat-number">100+</span> <span class="stat-label">Placed in Jobs</span></div>
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CAMPAIGNS SECTION ==================== -->
+  <section class="section campaigns-section" id="education-campaign" style="background: var(--color-white);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Current Campaigns</p>
+        <h2 class="section-title">Join Our <span class="text-gradient">Mission</span></h2>
+        <p class="section-description">
+          Every campaign addresses a critical need. Choose one that resonates with you.
+        </p>
+      </div>
+
+      <div class="campaigns-grid">
+        <article class="campaign-card reveal">
+          <div class="campaign-badge">🔥 Active</div>
+          <div class="campaign-icon">📚</div>
+          <h3>Educate a Child</h3>
+          <p>₹1000/month provides books, uniforms, and tuition for one child. Help break the cycle of poverty through education.</p>
+          <div class="campaign-progress">
+            <div class="progress-bar"><div class="progress-fill" style="width: 73%"></div></div>
+            <span>63% funded • ₹3.6L of ₹5L</span>
+          </div>
+          <a href="#donate" class="btn btn-primary btn-sm">Support This Campaign</a>
+        </article>
+
+        <article class="campaign-card reveal">
+          <div class="campaign-badge">🔥 Active</div>
+          <div class="campaign-icon">🏥</div>
+          <h3>Health for All</h3>
+          <p>Fund medical camps in remote villages. ₹1,500 provides health checkups and medicines for a family of four.</p>
+          <div class="campaign-progress">
+            <div class="progress-bar"><div class="progress-fill" style="width: 45%"></div></div>
+            <span>45% funded • ₹2.2L of ₹5L</span>
+          </div>
+          <a href="#donate" class="btn btn-primary btn-sm">Support This Campaign</a>
+        </article>
+
+        <article class="campaign-card reveal">
+          <div class="campaign-badge">🔥 Active</div>
+          <div class="campaign-icon">🏠</div>
+          <h3>Safe Homes Initiative</h3>
+          <p>Help build pucca homes for families living under tin roofs. ₹2,500 contributes to shelter materials for one home.</p>
+          <div class="campaign-progress">
+            <div class="progress-bar"><div class="progress-fill" style="width: 28%"></div></div>
+            <span>28% funded • ₹1.4L of ₹5L</span>
+          </div>
+          <a href="#donate" class="btn btn-primary btn-sm">Support This Campaign</a>
+        </article>
+
+        <article class="campaign-card reveal">
+          <div class="campaign-badge">⚡ Urgent</div>
+          <div class="campaign-icon">🚨</div>
+          <h3>Emergency Relief Fund</h3>
+          <p>Ready to respond to floods, earthquakes, and crises. Your donation provides immediate food, shelter, and medical aid.</p>
+          <div class="campaign-progress">
+            <div class="progress-bar"><div class="progress-fill" style="width: 91%"></div></div>
+            <span>71% funded • ₹4.5L of ₹5L</span>
+          </div>
+          <a href="#donate" class="btn btn-primary btn-sm">Support This Campaign</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MEDIA CENTER SECTION ==================== -->
+  <section class="section media-section" id="press-releases" style="background: var(--color-bg);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Stay Updated</p>
+        <h2 class="section-title">Media <span class="text-gradient">Center</span></h2>
+        <p class="section-description">
+          Follow our journey through press releases, photos, videos, and social media.
+        </p>
+      </div>
+
+      <!-- Social Media Quick Links -->
+      <div class="social-quick-links reveal">
+        <a href="https://instagram.com/ashafoundation" target="_blank" class="social-quick-btn instagram">
+          <span>📱</span> Instagram
+        </a>
+        <a href="https://facebook.com/ashafoundation" target="_blank" class="social-quick-btn facebook">
+          <span>📘</span> Facebook
+        </a>
+        <a href="#" class="social-quick-btn youtube">
+          <span>🎬</span> YouTube
+        </a>
+        <a href="#" class="social-quick-btn twitter">
+          <span>🐦</span> Twitter
+        </a>
+      </div>
+      <!-- Photo Gallery -->
+      <div class="media-subsection reveal" id="photo-gallery">
+        <h3>📷 Photo Gallery</h3>
+        <div class="gallery-grid">
+        <a href="photo-gallery.html#education" class="gallery-item"><span class="gallery-placeholder">📚</span><p>Education & Skill Development</p></a>
+        <a href="photo-gallery.html#healthcare" class="gallery-item"><span class="gallery-placeholder">🏥</span><p>Healthcare & Medical Aid</p></a>
+        <a href="photo-gallery.html#welfare" class="gallery-item"><span class="gallery-placeholder">🤝</span><p>Social Welfare & Poverty Relief</p></a>
+        <a href="photo-gallery.html#agriculture" class="gallery-item"><span class="gallery-placeholder">🌾</span><p>Agriculture & Rural Development</p></a>
+        <a href="photo-gallery.html#youth" class="gallery-item"><span class="gallery-placeholder">👥</span><p>Youth & Community Development</p></a>
+        <a href="photo-gallery.html#culture" class="gallery-item"><span class="gallery-placeholder">🎨</span><p>Arts, Culture & Heritage</p></a>
+        <a href="photo-gallery.html#shelter" class="gallery-item"><span class="gallery-placeholder">🏘️</span><p>Shelter & Infrastructure Support</p></a>
+        <a href="photo-gallery.html#training" class="gallery-item"><span class="gallery-placeholder">💼</span><p>Training & Employment Programs</p></a>
+      </div>
+        <a href="photo-gallery.html" class="btn btn-outline btn-sm">View All Photos →</a>
+      </div>
+  </section>
+  <!-- ==================== IMPACT COUNTERS SECTION ==================== -->
+  <section class="section counters-section" id="counters">
+    <div class="container">
+      <div class="counters-grid">
+        <div class="counter-item reveal">
+          <span class="counter-display counter" data-target="50000">0</span>
+          <span class="counter-suffix">+</span>
+          <p class="counter-label">Lives Impacted</p>
+        </div>
+        <div class="counter-item reveal">
+          <span class="counter-display counter" data-target="150">0</span>
+          <span class="counter-suffix">+</span>
+          <p class="counter-label">Volunteers</p>
+        </div>
+        <div class="counter-item reveal">
+          <span class="counter-display counter" data-target="28">0</span>
+          <span class="counter-suffix">+</span>
+          <p class="counter-label">Cities Reached</p>
+        </div>
+        <div class="counter-item reveal">
+          <span class="counter-display counter" data-target="100">0</span>
+          <span class="counter-suffix">%</span>
+          <p class="counter-label">Transparent Funds</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT US SECTION ==================== -->
+  <section class="section contact-section" id="contact" style="background: var(--color-white);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Get in Touch</p>
+        <h2 class="section-title">Contact <span class="text-gradient">Us</span></h2>
+        <p class="section-description">
+          Have questions, want to volunteer, or need support? We'd love to hear from you.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+                <h4>Head Office</h4>
+                <p>Shivam Colony, Near Bhuiphore Mandir<br/>Saraidhela, Dhanbad, Jharkhand<br/>Pin - 828109</p>
+            </div>
+            </div>
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <div>
+              <h4>Email Us</h4>
+              <p>hello@ashafoundation.org<br/>volunteer@ashafoundation.org</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div>
+              <h4>Call Us</h4>
+              <p>+91 98765 43210 (Mon-Fri, 9AM-6PM)<br/>+91 11 2345 6789 (Office)</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🤝</span>
+            <div>
+              <h4>Volunteer With Us</h4>
+              <p>Join 150+ volunteers making a difference.<br/><a href="team.html" class="link-primary">Apply to Volunteer →</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-row">
+            <input type="text" placeholder="Your Name *" required />
+            <input type="email" placeholder="Your Email *" required />
+          </div>
+          <input type="text" placeholder="Subject *" required />
+          <select required>
+            <option value="" disabled selected>I'm contacting about...</option>
+            <option>General Inquiry</option>
+            <option>Volunteering</option>
+            <option>Partnership</option>
+            <option>Media Request</option>
+            <option>Need Support</option>
+            <option>Other</option>
+          </select>
+          <textarea placeholder="Your Message *" rows="5" required></textarea>
+          <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+          <p class="form-note">🔒 We respect your privacy. Your information will never be shared.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DONATE SECTION ==================== -->
+  <section class="section donate-section" id="donate">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Make a Difference</p>
+        <h2 class="section-title">Support a <span class="text-gradient">Life Today</span></h2>
+        <p class="section-description">
+          Every rupee counts. Choose an amount or enter your own. 100% of your donation goes directly to those who need it most.
+        </p>
+      </div>
+
+      <div class="donate-container reveal">
+        <!-- Trust Indicators -->
+        <div class="trust-indicators">
+          <div class="trust-badge">
+            <span class="trust-icon">🔒</span>
+            <span>Secure Donation</span>
+          </div>
+          <div class="trust-badge">
+            <span class="trust-icon">💯</span>
+            <span>100% Funds to Impact</span>
+          </div>
+          <div class="trust-badge">
+            <span class="trust-icon">📊</span>
+            <span>Transparent Usage</span>
+          </div>
+          <div class="trust-badge">
+            <span class="trust-icon">🧾</span>
+            <span>Tax Exemption (80G)</span>
+          </div>
+        </div>
+
+        <!-- Amount Selection -->
+        <div class="donate-amounts">
+          <button class="amount-btn" data-amount="1000">
+            <span class="currency">₹</span>1,000
+          </button>
+          <button class="amount-btn active" data-amount="2000">
+            <span class="currency">₹</span>2,000
+          </button>
+          <button class="amount-btn" data-amount="3000">
+            <span class="currency">₹</span>3,000
+          </button>
+          <button class="amount-btn" data-amount="5000">
+            <span class="currency">₹</span>5,000
+          </button>
+          <button class="amount-btn" data-amount="10000">
+            <span class="currency">₹</span>10,000
+          </button>
+          <button class="amount-btn" data-amount="20000">
+          <span class="currency">₹</span>20,000
+          </button>
+        </div>
+
+        <!-- Custom Amount -->
+        <div class="custom-amount">
+          <label for="customAmount">Or enter a custom amount:</label>
+          <div class="custom-input-wrapper">
+            <span class="input-currency">₹</span>
+            <input
+              type="number"
+              id="customAmount"
+              placeholder="Enter amount"
+              min="1"
+            />
+          </div>
+        </div>
+
+        <!-- Selected Amount Display -->
+        <div class="selected-amount-display">
+          <span>You are donating:</span>
+          <span class="selected-amount" id="selectedAmountDisplay">₹1000</span>
+        </div>
+
+        <!-- Pay Button -->
+        <button class="btn btn-primary btn-xl pay-btn" id="payBtn">
+          <span class="btn-icon">💛</span>
+          <span class="btn-text">Pay Now</span>
+          <span class="btn-amount" id="payBtnAmount">₹500</span>
+        </button>
+
+        <p class="donate-note">
+          🔒 This is a demo. No real payment will be processed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+ <footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      
+      <div class="footer-brand">
+        <img src="ngo_logo.jpg" alt="Asha Vatslaya Foundation Logo" class="logo-image-footer" />
+        <span class="logo-text">
+          <span class="logo-main">ASHA VATSLAYA</span>
+          <span class="logo-sub">FOUNDATION</span>
+        </span>
+        <p class="footer-tagline">Bringing hope, changing lives — one act of kindness at a time.</p>
+        <div class="footer-company-details">
+          <p><strong>PAN No:</strong> AAMTA5031B</p>
+          <p><strong>NGO Darpan ID:</strong> JH/2026/1075571</p>
+          <p><strong>Udyam Registration No:</strong> UDYAM-JH-04-0085765</p>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="#home">🏠 Home</a>
+        <a href="#about">📋 Our Mission</a>
+        <a href="#team">👥 Our Team</a>
+        <a href="#values">✨ Core Values</a>
+        <a href="#our_work">💼 Our Work</a>
+      </div>
+      
+      <div class="footer-links">
+      <h4>Campaigns</h4>
+      <a href="shiksha-abhiyan.html">📚 Shiksha Abhiyan</a>
+      <a href="swasthya-seva.html">🏥 Swasthya Seva</a>
+      <a href="ghar-ghar-umeed.html">🏠 Ghar Ghar Umeed</a>
+      <a href="sankat-sahayata.html">🚨 Sankat Sahayata</a>
+    </div>
+      
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p><strong>📍 Head Office:</strong><br/>
+        Shivam Colony, Near Bhuiphore Mandir<br/>
+        Saraidhela, Dhanbad, Jharkhand<br/>
+        Pin - 828109</p>
+        <p><strong>📞 Phone:</strong><br/>
+        +91 98765 43210<br/>
+        +91 11 2345 6789</p>
+        <p><strong>📧 Email:</strong><br/>
+        info@ashavatslaya.org<br/>
+        volunteer@ashavatslaya.org</p>
+      </div>
+    </div>
+
+  <!-- ==================== PAYMENT MODAL ==================== -->
+  <!-- ==================== MULTI-STEP PAYMENT MODAL ==================== -->
+<div class="modal-overlay" id="paymentModal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose">&times;</button>
+    
+    <!-- Step Indicators -->
+    <div class="modal-steps">
+      <span class="modal-step-indicator active" data-step="1"></span>
+      <span class="modal-step-indicator" data-step="2"></span>
+      <span class="modal-step-indicator" data-step="3"></span>
+    </div>
+    
+    <!-- Step 1: Donor Information Form -->
+    <div class="modal-step active" id="step1">
+      <div class="modal-icon">📝</div>
+      <h3>Complete Your Donation</h3>
+      <p class="modal-amount" id="step1Amount">₹1,500</p>
+      <p style="color: var(--color-text-light); margin-bottom: 20px;">
+        Please fill in your details to proceed with your generous donation.
+      </p>
+      
+      <form class="donor-form" id="donorForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="donorName">Full Name <span class="required">*</span></label>
+            <input type="text" id="donorName" name="name" required placeholder="Enter your name" />
+          </div>
+          <div class="form-group">
+            <label for="donorEmail">Email Address <span class="required">*</span></label>
+            <input type="email" id="donorEmail" name="email" required placeholder="your@email.com" />
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="donorPhone">Contact Number <span class="required">*</span></label>
+            <input type="tel" id="donorPhone" name="phone" required placeholder="+91 XXXXX XXXXX" pattern="[0-9]{10,15}" />
+          </div>
+          <div class="form-group">
+            <label for="donorDob">Date of Birth <span class="required">*</span></label>
+            <input type="date" id="donorDob" name="dob" required />
+          </div>
+        </div>
+                <!-- PAN Card & Address (mandatory for 80G) -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="donorPan">PAN Card <span class="required">*</span></label>
+            <input type="text" id="donorPan" name="pan" required placeholder="e.g., AAAPL1234C" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" title="Enter a valid PAN (5 letters, 4 digits, 1 letter)" />
+           <small style="font-size: 0.7rem; color: #555; font-weight: 500;">Mandatory for 80G tax exemption</small>
+          </div>
+          <div class="form-group">
+            <label for="donorAddress">Full Address <span class="required">*</span></label>
+            <input type="text" id="donorAddress" name="address" required placeholder="Street, area, landmark" />
+          </div>
+        </div>
+
+               <!-- Tax exemption notice & NGO details -->
+        <div style="background: var(--color-bg-alt); padding: 12px 16px; border-radius: var(--radius-md); margin: 16px 0; font-size: 0.85rem; color: #1a1a1a; line-height: 1.4;">
+          <p style="margin: 0 0 8px 0;"><strong>📋 Dear donor,</strong> kindly provide your PAN card and address for tax exemption benefits. As per new guidelines of the Income Tax Department, it is mandatory.</p>
+          <p style="margin: 0 0 8px 0;">✅ Your contributions are eligible for tax benefit under Section 80G as <strong>Asha Vatslaya Trust</strong> is registered as a non-profit organization.</p>
+          <p style="margin: 0; font-size: 0.8rem;">
+            <strong>PAN:</strong> AAETN7300A &nbsp;|&nbsp;
+            <strong>Regd. No.:</strong> 2338 &nbsp;|&nbsp;
+            <strong>Niti Aayog:</strong> DL/2024/0463496
+          </p>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="donorCity">City <span class="required">*</span></label>
+            <input type="text" id="donorCity" name="city" required placeholder="Your city" />
+          </div>
+          <div class="form-group">
+            <label for="donorState">State <span class="required">*</span></label>
+            <select id="donorState" name="state" required>
+              <option value="" disabled selected>Select your state</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Ladakh">Ladakh</option>
+              <option value="Puducherry">Puducherry</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="modalCloseBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Continue →</button>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Step 2: Thank You Message -->
+    <div class="modal-step" id="step2">
+      <span class="thank-you-icon">🎉</span>
+      <h3 class="thank-you-title">Thank You, <span id="thankYouName">Donor</span>!</h3>
+      <p class="thank-you-message">
+        Your kindness will create real change. Here's a summary of your donation:
+      </p>
+      
+      <div class="thank-you-details">
+        <p><strong>Amount:</strong> <span id="thankYouAmount">₹1,500</span></p>
+        <p><strong>Email:</strong> <span id="thankYouEmail">your@email.com</span></p>
+        <p><strong>Location:</strong> <span id="thankYouLocation">City, State</span></p>
+        <p><strong>Receipt:</strong> Will be sent to your email</p>
+      </div>
+      
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" id="backToFormBtn">← Edit Details</button>
+        <button type="button" class="btn btn-primary" id="proceedToPayBtn">Proceed to Payment →</button>
+      </div>
+    </div>
+    
+    <!-- Step 3: Final Payment CTA -->
+    <div class="modal-step" id="step3">
+      <div class="modal-icon">🔒</div>
+      <h3>Secure Payment</h3>
+      <p class="modal-amount" id="step3Amount">₹1,500</p>
+      <p class="thank-you-message">
+        You're about to be redirected to our secure payment gateway. 
+        All transactions are encrypted and protected.
+      </p>
+      
+      <div class="payment-cta">
+        <button class="btn btn-primary btn-xl" id="finalPayBtn">
+          <span class="btn-icon">💳</span>
+          Pay <span id="finalPayAmount">₹1,500</span> Now
+        </button>
+        <p class="payment-note">
+          <strong>🔐 Secure & Encrypted</strong><br/>
+          Powered by Razorpay • 80G Tax Exemption Applicable • 
+          100% Funds to Impact
+        </p>
+        
+        <div class="security-badges">
+          <span class="security-badge"><span class="icon">🛡️</span> SSL Encrypted</span>
+          <span class="security-badge"><span class="icon">✅</span> PCI Compliant</span>
+          <span class="security-badge"><span class="icon">🧾</span> Instant Receipt</span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script src="script.js"></script>
+  <script>
+  (function() {
+    const donateBtn = document.getElementById('floatingDonateBtn');
+    if (donateBtn) {
+      donateBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const donateSection = document.getElementById('donate');
+        if (donateSection) {
+          donateSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          // fallback: try to find any element with id="donate"
+          const fallback = document.querySelector('#donate, .donate-section, [href="#donate"]');
+          if (fallback && fallback.id === 'donate') fallback.scrollIntoView({ behavior: 'smooth' });
+          else window.location.href = '#donate';
+        }
+      });
+    }
+  })();
+</script>
+</body>
+</html>

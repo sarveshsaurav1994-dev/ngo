@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Asha Foundation | Bringing Hope, Changing Lives</title>
+  <!-- Google Fonts (lightweight, allowed as per constraints) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #fffef7;
+      color: #1e1a0c;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* smooth scroll + anchor offset for sticky header */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    /* ----- scroll progress indicator ----- */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(251, 191, 36, 0.2);
+      z-index: 2000;
+    }
+    .progress-bar {
+      height: 4px;
+      background: linear-gradient(90deg, #f59e0b, #fbbf24, #f97316);
+      width: 0%;
+      transition: width 0.08s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ----- sticky navigation ----- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 252, 240, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), 0 1px 0 rgba(251, 191, 36, 0.2);
+      z-index: 1000;
+      padding: 0.9rem 2rem;
+      transition: all 0.2s;
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.7rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #e67e22, #fbbf24);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #3b2a1f;
+      transition: 0.2s;
+      font-size: 1rem;
+      padding: 0.4rem 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: #f97316;
+      border-bottom-color: #fbbf24;
+    }
+
+    .nav-links .active {
+      color: #f97316;
+      border-bottom-color: #f97316;
+    }
+
+    /* sections general */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 3rem;
+      background: linear-gradient(120deg, #d97706, #f59e0b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* Hero fullscreen */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(circle at 10% 30%, #fff8e7, #fff1d6);
+      border-radius: 0 0 48px 48px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    /* subtle parallax effect: background attachment + slow shift */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" opacity="0.08"><path fill="%23f59e0b" d="M0,300 C150,250 300,380 450,350 C600,320 750,200 900,220 C1050,240 1150,320 1200,300 L1200,800 L0,800 Z"/><circle cx="200" cy="150" r="40" fill="%23fbbf24"/><circle cx="900" cy="120" r="60" fill="%23f97316" opacity="0.4"/></svg>') repeat;
+      background-size: 400px;
+      transform: translateY(0);
+      transition: transform 0.1s ease-out;
+      pointer-events: none;
+    }
+    .hero:hover::before {
+      transform: translateY(8px);
+    }
+    .hero-content {
+      max-width: 800px;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      color: #c2410c;
+      line-height: 1.2;
+    }
+    .tagline {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #f59e0b;
+      margin: 1rem 0;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 1.5rem auto;
+      color: #4b3b2a;
+    }
+    .btn-primary {
+      background: linear-gradient(100deg, #f97316, #fbbf24);
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 60px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(249,115,22,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 1.2rem;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(249,115,22,0.4);
+    }
+
+    /* Problem section */
+    .problem-card {
+      background: #fff9ef;
+      border-radius: 2rem;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.05);
+      border: 1px solid #ffecb3;
+    }
+    .problem-card p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #4a3b28;
+    }
+
+    /* Our Work Cards Grid */
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .card {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      width: 260px;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 12px 24px -12px rgba(0,0,0,0.08);
+      border: 1px solid #fff0ce;
+    }
+    .card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 28px 36px -16px rgba(245,158,11,0.2);
+      border-color: #fbbf24;
+    }
+    .card svg {
+      width: 52px;
+      height: 52px;
+      margin-bottom: 1rem;
+      stroke: #f97316;
+      stroke-width: 1.5;
+      fill: none;
+    }
+    .card .icon-fill {
+      fill: #ffedd5;
+      stroke: #f97316;
+    }
+    .card h3 {
+      font-size: 1.6rem;
+      margin: 0.8rem 0;
+      color: #c2410c;
+    }
+    .card p {
+      color: #5c4c36;
+      font-size: 0.95rem;
+    }
+
+    /* Impact Stories */
+    .stories-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .story-card {
+      background: #fffbf0;
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      align-items: center;
+      transition: all 0.4s;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+      border-left: 6px solid #fbbf24;
+    }
+    .story-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .story-avatar {
+      background: #fde68a;
+      border-radius: 60px;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      font-weight: bold;
+    }
+    .story-content {
+      flex: 1;
+    }
+    .story-name {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #b45309;
+    }
+    .transformation {
+      margin-top: 0.6rem;
+      background: #fff1df;
+      padding: 0.8rem 1rem;
+      border-radius: 1.5rem;
+      display: inline-block;
+    }
+    .before {
+      font-weight: 600;
+      color: #9b4b1e;
+    }
+    .after {
+      font-weight: 700;
+      color: #e67e22;
+    }
+
+    /* stats counters (bonus) */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      margin: 3rem 0 2rem;
+      background: linear-gradient(120deg, #fff5e6, #fffae9);
+      border-radius: 3rem;
+      padding: 2.5rem 1rem;
+    }
+    .stat-item {
+      text-align: center;
+      min-width: 160px;
+    }
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #e67e22;
+    }
+    .stat-label {
+      font-weight: 500;
+      color: #5c4a32;
+    }
+
+    /* Donation Section */
+    .donation-container {
+      background: #ffffffdd;
+      backdrop-filter: blur(4px);
+      border-radius: 2.5rem;
+      padding: 2rem;
+      box-shadow: 0 25px 40px -18px rgba(0,0,0,0.1);
+      border: 1px solid #ffefcf;
+    }
+    .donation-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .donation-btn {
+      background: #fff3e0;
+      border: 2px solid #fed7aa;
+      padding: 0.8rem 1.8rem;
+      font-weight: 700;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 1.1rem;
+      color: #b45309;
+    }
+    .donation-btn.selected {
+      background: #f97316;
+      border-color: #f97316;
+      color: white;
+      box-shadow: 0 4px 12px rgba(249,115,22,0.4);
+    }
+    .custom-input {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    .custom-input input {
+      padding: 0.8rem 1rem;
+      border-radius: 60px;
+      border: 1px solid #ffcf9a;
+      font-size: 1rem;
+      width: 200px;
+      text-align: center;
+    }
+    .trust-badge {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.8rem 0;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: #ecfdf5;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0b5e42;
+    }
+    .pay-btn {
+      background: linear-gradient(95deg, #f97316, #fbbf24);
+      border: none;
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+      display: block;
+      padding: 1rem;
+      font-weight: 700;
+      border-radius: 60px;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #fff7e8;
+      color: #8b6946;
+    }
+
+    /* fade-in on scroll generic */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* mobile */
+    @media (max-width: 760px) {
+      .navbar {
+        padding: 0.8rem 1rem;
+      }
+      .nav-links {
+        gap: 1.2rem;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .tagline {
+        font-size: 1.3rem;
+      }
+      section {
+        padding: 3rem 1.5rem;
+      }
+      .card {
+        width: 100%;
+        max-width: 280px;
+      }
+      .story-card {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- scroll progress -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Navigation sticky -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">✨ Asha Foundation</div>
+      <ul class="nav-links">
+        <li><a href="#home" data-nav="home">Home</a></li>
+        <li><a href="#our_work" data-nav="work">Our Work</a></li>
+        <li><a href="#impact-stories" data-nav="stories">Impact Stories</a></li>
+        <li><a href="#donate" data-nav="donate">Donate</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO Section (Home) -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Bringing Hope, <br>Changing Lives</h1>
+      <div class="tagline">Every soul deserves a second chance</div>
+      <p>We are Asha Foundation — standing with the most vulnerable, empowering communities with dignity, education, healthcare, and love. Together, we rewrite destinies.</p>
+      <button class="btn-primary" id="supportBtn">💛 Support a Life</button>
+    </div>
+  </section>
+
+  <!-- PROBLEM Section (Story flow: The reality) -->
+  <section id="problem" class="fade-up">
+    <div class="problem-card">
+      <div class="section-title">The Reality We Cannot Ignore</div>
+      <p>Millions of families in India face daily struggles — children missing school, treatable illnesses becoming fatal, and empty stomachs at night. The gap is wide, but hope is stronger. Asha Foundation bridges the divide with compassion and action.</p>
+    </div>
+  </section>
+
+  <!-- OUR WORK Section -->
+  <section id="our_work" class="fade-up">
+    <h2 class="section-title">Where We Bring Change</h2>
+    <div class="cards-grid">
+      <!-- Education Card with SVG -->
+      <div class="card">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none">
+          <path d="M12 3L3 8L12 13L21 8L12 3Z" stroke="#f97316" fill="#fff0cf"/>
+          <path d="M5 13L5 17L12 21L19 17L19 13" stroke="#f97316" fill="none"/>
+          <path d="M12 13L12 21" stroke="#f97316"/>
+        </svg>
+        <h3>Education</h3>
+        <p>Scholarships, digital classes & after-school support for 2000+ children.</p>
+      </div>
+      <!-- Healthcare -->
+      <div class="card">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none">
+          <path d="M12 8V16M8 12H16" stroke="#f97316" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="9" stroke="#f97316" fill="#fff0cf"/>
+        </svg>
+        <h3>Healthcare</h3>
+        <p>Mobile clinics, mental wellness camps & medicine for remote villages.</p>
+      </div>
+      <!-- Food Support -->
+      <div class="card">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none">
+          <path d="M18 8C18 11.3 15.3 14 12 14C8.7 14 6 11.3 6 8" stroke="#f97316"/>
+          <path d="M12 22C8 22 6 20 6 17H18C18 20 16 22 12 22Z" stroke="#f97316" fill="#fff0cf"/>
+          <path d="M9 5L9 9" stroke="#f97316"/><path d="M15 5L15 9" stroke="#f97316"/>
+        </svg>
+        <h3>Food Support</h3>
+        <p>Nutritious meal programs and grocery kits for 3500+ families annually.</p>
+      </div>
+      <!-- Shelter -->
+      <div class="card">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none">
+          <path d="M3 10L12 3L21 10V20H3V10Z" stroke="#f97316" fill="#fff0cf"/>
+          <path d="M9 20V13H15V20" stroke="#f97316"/>
+        </svg>
+        <h3>Shelter</h3>
+        <p>Safe housing, transitional homes & dignified living for homeless.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT STORIES Section + Bonus counters inside -->
+  <section id="impact-stories" class="fade-up">
+    <h2 class="section-title">Real Impact: Before → After</h2>
+    <div class="stories-container">
+      <div class="story-card fade-scroll">
+        <div class="story-avatar">👧🏽</div>
+        <div class="story-content">
+          <div class="story-name">Riya Kumari, 12</div>
+          <div class="transformation"><span class="before">❌ Before: Dropped out of school due to family poverty</span> → <span class="after">✅ After: Asha Scholar, now top in class & dreams of being a doctor</span></div>
+        </div>
+      </div>
+      <div class="story-card fade-scroll">
+        <div class="story-avatar">👴🏽</div>
+        <div class="story-content">
+          <div class="story-name">Ramesh & Family</div>
+          <div class="transformation"><span class="before">🏚️ Before: Homeless, no access to regular meals</span> → <span class="after">🏠 After: Transitional shelter + livelihood support, running a small grocery shop</span></div>
+        </div>
+      </div>
+      <div class="story-card fade-scroll">
+        <div class="story-avatar">👩🏽‍⚕️</div>
+        <div class="story-content">
+          <div class="story-name">Sunita Devi</div>
+          <div class="transformation"><span class="before">🩺 Before: Critical illness with no medical aid</span> → <span class="after">❤️ After: Full treatment via health camps & now a community health volunteer</span></div>
+        </div>
+      </div>
+      <div class="story-card fade-scroll">
+        <div class="story-avatar">👦🏽</div>
+        <div class="story-content">
+          <div class="story-name">Arjun (14)</div>
+          <div class="transformation"><span class="before">📚 Before: Child labor due to debt</span> → <span class="after">✨ After: Rescued, enrolled in vocational training & regular school</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated Counters Bonus Section -->
+    <div class="stats-row" id="statsSection">
+      <div class="stat-item">
+        <div class="stat-number" data-target="2850">0</div>
+        <div class="stat-label">Children Educated</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="12400">0</div>
+        <div class="stat-label">Meals Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="890">0</div>
+        <div class="stat-label">Lives with Medical Care</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="520">0</div>
+        <div class="stat-label">Families Housed</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATION Section (Call to Action) -->
+  <section id="donate" class="fade-up">
+    <h2 class="section-title">Your Generosity = Real Change</h2>
+    <div class="donation-container">
+      <div class="trust-badge">
+        <span class="badge">✅ 100% funds go to impact</span>
+        <span class="badge">🔍 Transparent usage reports</span>
+        <span class="badge">💛 Tax-exempt donations</span>
+      </div>
+      <div class="donation-options" id="donationOptions">
+        <button class="donation-btn" data-amount="100">₹100</button>
+        <button class="donation-btn" data-amount="500">₹500</button>
+        <button class="donation-btn" data-amount="1000">₹1000</button>
+      </div>
+      <div class="custom-input">
+        <label>Custom Amount (₹):</label>
+        <input type="number" id="customAmount" placeholder="e.g., 750" min="10" step="10">
+      </div>
+      <button id="payNowBtn" class="pay-btn">✨ Pay Now (Demo) ✨</button>
+      <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem;">❤️ Every contribution transforms lives — this is a demonstration of hope.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Asha Foundation — Bringing Hope, Changing Lives | Built with compassion</p>
+  </footer>
+
+  <script>
+    (function() {
+      // ========== SMOOTH SCROLL & ACTIVE TAB HIGHLIGHT ==========
+      const sections = {
+        home: document.getElementById('home'),
+        work: document.getElementById('our_work'),
+        stories: document.getElementById('impact-stories'),
+        donate: document.getElementById('donate')
+      };
+      const navLinks = document.querySelectorAll('.nav-links a');
+
+      function updateActiveNav() {
+        const scrollPos = window.scrollY + 100; // offset for header
+        let activeId = 'home';
+        if (scrollPos >= sections.donate.offsetTop - 90) activeId = 'donate';
+        else if (scrollPos >= sections.stories.offsetTop - 90) activeId = 'stories';
+        else if (scrollPos >= sections.work.offsetTop - 90) activeId = 'work';
+        else activeId = 'home';
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          const navVal = link.getAttribute('data-nav');
+          if ((navVal === 'home' && activeId === 'home') ||
+              (navVal === 'work' && activeId === 'work') ||
+              (navVal === 'stories' && activeId === 'stories') ||
+              (navVal === 'donate' && activeId === 'donate')) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', () => {
+        updateActiveNav();
+        // Scroll progress bar
+        const winScroll = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('progressBar').style.width = scrolled + '%';
+      });
+      updateActiveNav();
+
+      // smooth scroll on click (native support + fallback)
+      document.querySelectorAll('.nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetEl = document.getElementById(targetId);
+          if(targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+      document.getElementById('supportBtn').addEventListener('click', () => {
+        document.getElementById('donate').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      // ========== FADE-IN ON SCROLL (Intersection Observer) ==========
+      const fadeElements = document.querySelectorAll('.fade-up, .fade-scroll');
+      const storyCards = document.querySelectorAll('.story-card');
+      const allFadeTargets = [...fadeElements, ...storyCards];
+      const observerFade = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observerFade.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -30px 0px" });
+      allFadeTargets.forEach(el => observerFade.observe(el));
+      // also manually ensure story cards
+      storyCards.forEach(card => observerFade.observe(card));
+      
+      // ========== ANIMATED COUNTERS (bonus) ==========
+      const counters = document.querySelectorAll('.stat-number');
+      let counted = false;
+      const statsSection = document.getElementById('statsSection');
+      const startCounters = () => {
+        if(counted) return;
+        counters.forEach(counter => {
+          const target = parseInt(counter.getAttribute('data-target'));
+          let current = 0;
+          const increment = target / 65;
+          const updateCounter = () => {
+            current += increment;
+            if(current < target) {
+              counter.innerText = Math.floor(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.innerText = target.toLocaleString();
+            }
+          };
+          updateCounter();
+        });
+        counted = true;
+      };
+      const statsObserver = new IntersectionObserver((entries) => {
+        if(entries[0].isIntersecting && !counted) startCounters();
+      }, { threshold: 0.3 });
+      if(statsSection) statsObserver.observe(statsSection);
+
+      // ========== DONATION LOGIC (preset + custom + dummy) ==========
+      const presetBtns = document.querySelectorAll('.donation-btn');
+      const customInput = document.getElementById('customAmount');
+      let selectedAmount = null;
+
+      function removeSelectedClass() {
+        presetBtns.forEach(btn => btn.classList.remove('selected'));
+      }
+
+      presetBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          removeSelectedClass();
+          btn.classList.add('selected');
+          selectedAmount = parseInt(btn.getAttribute('data-amount'));
+          if(customInput) customInput.value = '';
+        });
+      });
+
+      customInput.addEventListener('input', (e) => {
+        removeSelectedClass();
+        const val = parseInt(e.target.value);
+        if(!isNaN(val) && val > 0) selectedAmount = val;
+        else selectedAmount = null;
+      });
+
+      const payBtn = document.getElementById('payNowBtn');
+      payBtn.addEventListener('click', () => {
+        let amount = null;
+        if(customInput.value && parseInt(customInput.value) > 0) {
+          amount = parseInt(customInput.value);
+        } else if(selectedAmount) {
+          amount = selectedAmount;
+        }
+        if(!amount || amount <= 0) {
+          alert("💛 Please select or enter a donation amount (₹10+).");
+          return;
+        }
+        alert(`✨ Thank you for your generous support of ₹${amount}! ✨\n\n(Asha Foundation Demo) Your kindness brings real hope. 100% of funds go to impact.`);
+        // reset visual (optional)
+      });
+
+      // small parallax touch on hero background scroll
+      window.addEventListener('scroll', () => {
+        const hero = document.querySelector('.hero');
+        if(hero) {
+          const scrolled = window.scrollY;
+          const rate = scrolled * 0.08;
+          const pseudo = hero.querySelector('::before');
+          // subtle transform via style variable for parallax effect (background shift)
+          hero.style.setProperty('--scroll-offset', `${rate}px`);
+        }
+      });
+      // attach dynamic transform to hero pseudo element via js style injection
+      const heroElem = document.querySelector('.hero');
+      if(heroElem) {
+        const style = document.createElement('style');
+        style.textContent = `.hero::before { transform: translateY(var(--scroll-offset, 0px)); transition: transform 0.05s linear; }`;
+        document.head.appendChild(style);
+      }
+      
+      // ensure all story cards initial class for observer
+      storyCards.forEach(c => c.classList.add('fade-scroll'));
+    })();
+  </script>
+</body>
+</html>

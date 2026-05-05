@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Photo Gallery — Asha Vatslaya Foundation. Capturing raw moments of change, hope, and human resilience." />
+  <title>Photo Gallery — Asha Vatslaya Foundation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="photo-gallery.css" />
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="main.html" class="nav-logo">
+        <img src="ngo_logo.jpg" alt="Asha Vatslaya Foundation Logo" class="logo-image" />
+        <span class="logo-text">
+          <span class="logo-main">ASHA VATSLAYA</span>
+          <span class="logo-sub">FOUNDATION</span>
+        </span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="main.html#home" class="nav-link">Home</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" data-dropdown="about">About Us ▾</button>
+          <ul class="dropdown-menu" id="aboutDropdown">
+            <li><a href="our-mission.html" class="dropdown-item">Our Mission</a></li>
+            <li><a href="our-team.html" class="dropdown-item">Our Team</a></li>
+            <li><a href="core-values.html" class="dropdown-item">Core Values</a></li>
+          </ul>
+        </li>
+        <li><a href="our_work.html" class="nav-link">Our Work</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" data-dropdown="campaigns">Campaigns ▾</button>
+          <ul class="dropdown-menu" id="campaignsDropdown">
+            <li><a href="shiksha-abhiyan.html" class="dropdown-item">📚 Shiksha Abhiyan</a></li>
+            <li><a href="swasthya-seva.html" class="dropdown-item">🏥 Swasthya Seva</a></li>
+            <li><a href="ghar-ghar-umeed.html" class="dropdown-item">🏠 Ghar Ghar Umeed</a></li>
+            <li><a href="sankat-sahayata.html" class="dropdown-item">🚨 Sankat Sahayata</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="nav-link dropdown-toggle active" data-dropdown="media">Media Center ▾</button>
+          <ul class="dropdown-menu" id="mediaDropdown">
+            <li><a href="press-releases.html" class="dropdown-item">📰 Press Releases</a></li>
+            <li><a href="photo-gallery.html" class="dropdown-item">📷 Photo Gallery</a></li>
+          </ul>
+        </li>
+        <li><a href="stories.html" class="nav-link">Impact Stories</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li><a href="#donate" class="nav-link donate-nav-btn" data-section="donate">Donate</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="main.html" class="mobile-link">🏠 Home</a>
+      <div class="mobile-submenu">
+        <button class="mobile-submenu-toggle" data-target="mobileAbout">About Us ▾</button>
+        <ul class="mobile-submenu-list" id="mobileAbout">
+          <li><a href="mission.html" class="mobile-link">Our Mission</a></li>
+          <li><a href="team.html" class="mobile-link">Our Team</a></li>
+          <li><a href="values.html" class="mobile-link">Core Values</a></li>
+        </ul>
+      </div>
+      <a href="our_work.html" class="mobile-link">💼 Our Work</a>
+      <div class="mobile-submenu">
+        <button class="mobile-submenu-toggle" data-target="mobileCampaigns">Campaigns ▾</button>
+        <ul class="mobile-submenu-list" id="mobileCampaigns">
+          <li><a href="shiksha-abhiyan.html" class="mobile-link">📚 Shiksha Abhiyan</a></li>
+          <li><a href="swasthya-seva.html" class="mobile-link">🏥 Swasthya Seva</a></li>
+          <li><a href="ghar-ghar-umeed.html" class="mobile-link">🏠 Ghar Ghar Umeed</a></li>
+          <li><a href="sankat-sahayata.html" class="mobile-link">🚨 Sankat Sahayata</a></li>
+        </ul>
+      </div>
+      <div class="mobile-submenu">
+        <button class="mobile-submenu-toggle" data-target="mobileMedia">Media Center ▾</button>
+        <ul class="mobile-submenu-list" id="mobileMedia">
+          <li><a href="press-releases.html" class="mobile-link">📰 Press Releases</a></li>
+          <li><a href="photo-gallery.html" class="mobile-link active">📷 Photo Gallery</a></li>
+        </ul>
+      </div>
+      <a href="stories.html" class="mobile-link">✨ Impact Stories</a>
+      <a href="contact.html" class="mobile-link">📞 Contact Us</a>
+      <a href="#donate" class="mobile-link donate-nav-btn">💛 Donate</a>
+    </div>
+  </nav>
+<button class="floating-donate-btn" id="floatingDonateBtn">
+  💛 Donate Now
+</button>
+  <!-- PAGE HEADER -->
+  <header class="gallery-page-header">
+    <h1>Photo Gallery</h1>
+    <p>Behind every statistic is a human face. These frames capture the unfiltered reality of our work on the ground.</p>
+  </header>
+  <!-- SECTION 1: Education & Skill Development -->
+  <section class="gallery-section-block" id="education">
+    <div class="gallery-container">
+      <div class="gallery-visual">
+        <img src="images/photo_gallery/education/pg_education_4.jpeg" alt="Children learning in a rural classroom" class="gallery-main-img" onerror="this.src='https://placehold.co/800x600?text=Education+Gallery'"/>
+      </div>
+      <div class="gallery-content">
+        <h2 class="gallery-title">📚 Education & Skill Development</h2>
+        <p class="gallery-text">From basic literacy to vocational training – we empower children and youth with the tools they need to break the cycle of poverty. These photos capture after‑school coaching, digital labs, and skill workshops that turn dreams into livelihoods.</p>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb" data-img="assets/edu1-full.jpg"><img src="images/photo_gallery/education/pg_education_1.jpeg" alt="Classroom session" onerror="this.src='https://placehold.co/150x90?text=Image+1'"/></div>
+          <div class="gallery-thumb" data-img="assets/edu2-full.jpg"><img src="images/photo_gallery/education/pg_education_2.jpeg " alt="Computer training" onerror="this.src='https://placehold.co/150x90?text=Image+2'"/></div>
+          <div class="gallery-thumb" data-img="assets/edu3-full.jpg"><img src="images/photo_gallery/education/pg_education_3.avif" alt="Scholarship distribution" onerror="this.src='https://placehold.co/150x90?text=Image+3'"/></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Healthcare & Medical Aid -->
+  <section class="gallery-section-block gallery-alt" id="healthcare">
+    <div class="gallery-container">
+      <div class="gallery-visual">
+        <img src="images/photo_gallery/healthcare/pg_healthcare_4.avif" alt="Free medical camp" class="gallery-main-img" onerror="this.src='https://placehold.co/800x600?text=Healthcare+Gallery'"/>
+      </div>
+      <div class="gallery-content">
+        <h2 class="gallery-title">🏥 Healthcare & Medical Aid</h2>
+        <p class="gallery-text">Mobile clinics, eye check‑ups, medicine distribution – we bring quality healthcare to remote villages. Witness the relief of a mother whose child receives treatment, and the dedication of volunteer doctors who work till the last patient.</p>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb" data-img="assets/health1-full.jpg"><img src="images/photo_gallery/healthcare/pg_healthcare_1.jpeg"  alt="Doctor consultation" onerror="this.src='https://placehold.co/150x90?text=Image+1'"/></div>
+          <div class="gallery-thumb" data-img="assets/health2-full.jpg"><img src="images/photo_gallery/healthcare/pg_healthcare_2.jpeg"  alt="Medicine delivery" onerror="this.src='https://placehold.co/150x90?text=Image+2'"/></div>
+          <div class="gallery-thumb" data-img="assets/health3-full.jpg"><img src="images/photo_gallery/healthcare/pg_healthcare_3.jpeg"  alt="Awareness session" onerror="this.src='https://placehold.co/150x90?text=Image+3'"/></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Social Welfare & Poverty Relief -->
+  <section class="gallery-section-block" id="welfare">
+    <div class="gallery-container">
+      <div class="gallery-visual">
+        <img src="images/photo_gallery/poverty_relief/pg_poverty_4.jpeg" alt="Ration distribution" class="gallery-main-img" onerror="this.src='https://placehold.co/800x600?text=Welfare+Gallery'"/>
+      </div>
+      <div class="gallery-content">
+        <h2 class="gallery-title">🤝 Social Welfare & Poverty Relief</h2>
+        <p class="gallery-text">Food kits, old‑age support, and emergency cash transfers – we stand with the most vulnerable. These images show the dignity of a warm meal, the smile of a grandparent who no longer sleeps hungry, and the collective strength of community kitchens.</p>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb" data-img="assets/welfare1-full.jpg"><img src="images/photo_gallery/poverty_relief/pg_poverty_1.webp"  alt="Ration kit" onerror="this.src='https://placehold.co/150x90?text=Image+1'"/></div>
+          <div class="gallery-thumb" data-img="assets/welfare2-full.jpg"><img src="images/photo_gallery/poverty_relief/pg_poverty_2.jpeg"  alt="Community feast" onerror="this.src='https://placehold.co/150x90?text=Image+2'"/></div>
+          <div class="gallery-thumb" data-img="assets/welfare3-full.jpg"><img src="images/photo_gallery/poverty_relief/pg_poverty_3.jpeg"  alt="Elderly support" onerror="this.src='https://placehold.co/150x90?text=Image+3'"/></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Agriculture & Rural Development -->
+  <section class="gallery-section-block gallery-alt" id="agriculture">
+    <div class="gallery-container">
+      <div class="gallery-visual">
+        <img src="images/photo_gallery/agriculture/pg_agriculture_4.jpg" alt="Farmer training" class="gallery-main-img" onerror="this.src='https://placehold.co/800x600?text=Agriculture+Gallery'"/>
+      </div>
+      <div class="gallery-content">
+        <h2 class="gallery-title">🌾 Agriculture & Rural Development</h2>
+        <p class="gallery-text">Organic farming workshops, seed distribution, and irrigation support – we help farmers increase yields sustainably. See the joy of a first harvest and the confidence of a woman farmer leading her family toward self‑reliance.</p>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb" data-img="assets/agri1-full.jpg"><img src="images/photo_gallery/agriculture/pg_agriculture_1.jpg"  alt="Field training" onerror="this.src='https://placehold.co/150x90?text=Image+1'"/></div>
+          <div class="gallery-thumb" data-img="assets/agri2-full.jpg"><img src="images/photo_gallery/agriculture/pg_agriculture_2.jpg"  alt="Seed distribution" onerror="this.src='https://placehold.co/150x90?text=Image+2'"/></div>
+          <div class="gallery-thumb" data-img="assets/agri3-full.jpg"><img src="images/photo_gallery/agriculture/pg_agriculture_3.jpg"  alt="Irrigation project" onerror="this.src='https://placehold.co/150x90?text=Image+3'"/></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Youth & Community Development -->
+  <section class="gallery-section-block" id="youth">
+    <div class="gallery-container">
+      <div class="gallery-visual">
+        <img src="images/photo_gallery/youth_community/pg_youth_4.jpeg" alt="Youth leadership camp" class="gallery-main-img" onerror="this.src='https://placehold.co/800x600?text=Youth+Gallery'"/>
+      </div>
+      <div class="gallery-content">
+        <h2 class="gallery-title">👥 Youth & Community Development</h2>
+        <p class="gallery-text">Leadership workshops, sports for change, and community dialogues – we nurture the next generation of changemakers. These photos capture the energy of young minds solving local problems and the spirit of collective action.</p>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb" data-img="assets/youth1-full.jpg"><img src="images/photo_gallery/youth_community/pg_youth_1.jpeg"  alt="Workshop" onerror="this.src='https://placehold.co/150x90?text=Image+1'"/></div>
+          <div class="gallery-thumb" data-img="assets/youth2-full.jpg"><img src="images/photo_gallery/youth_community/pg_youth_2.png" alt="Sports event" onerror="this.src='https://placehold.co/150x90?text=Image+2'"/></div>
+          <div class="gallery-thumb" data-img="assets/youth3-full.jpg"><img src="images/photo_gallery/youth_community/pg_youth_3.jpeg" alt="Community meeting" onerror="this.src='https://placehold.co/150x90?text=Image+3'"/></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Arts, Culture & Heritage -->
+  <section class="gallery-section-block gallery-alt" id="culture">
+    <div class="gallery-container">
+      <div class="gallery-visual">
+        <img src="images/photo_gallery/art/pg_art_4.webp" alt="Folk art workshop" class="gallery-main-img" onerror="this.src='https://placehold.co/800x600?text=Culture+Gallery'"/>
+      </div>
+      <div class="gallery-content">
+        <h2 class="gallery-title">🎨 Arts, Culture & Heritage</h2>
+        <p class="gallery-text">Reviving traditional crafts, folk music festivals, and heritage walks – we preserve the soul of our communities. Witness the colours of a local artisan's work and the pride of passing ancestral skills to the next generation.</p>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb" data-img="assets/culture1-full.jpg"><img src="images/photo_gallery/art/pg_art_1.jpeg" alt="Handicraft" onerror="this.src='https://placehold.co/150x90?text=Image+1'"/></div>
+          <div class="gallery-thumb" data-img="assets/culture2-full.jpg"><img src="images/photo_gallery/art/pg_art_2.jpg"  alt="Music performance" onerror="this.src='https://placehold.co/150x90?text=Image+2'"/></div>
+          <div class="gallery-thumb" data-img="assets/culture3-full.jpg"><img src="images/photo_gallery/art/pg_art_3.jpg"  alt="Art exhibition" onerror="this.src='https://placehold.co/150x90?text=Image+3'"/></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Shelter & Infrastructure Support -->
+  <section class="gallery-section-block" id="shelter">
+    <div class="gallery-container">
+      <div class="gallery-visual">
+        <img src="images/photo_gallery/shelter/pg_shelter_4.jpeg" alt="New home construction" class="gallery-main-img" onerror="this.src='https://placehold.co/800x600?text=Shelter+Gallery'"/>
+      </div>
+      <div class="gallery-content">
+        <h2 class="gallery-title">🏘️ Shelter & Infrastructure Support</h2>
+        <p class="gallery-text">Building pucca homes, repairing slums, and installing clean water systems – we provide the foundation for a dignified life. These images show the transformation from broken roofs to safe, sturdy homes, and the tears of joy on the first night of security.</p>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb" data-img="assets/shelter1-full.jpg"><img src="images/photo_gallery/shelter/pg_shelter_1.webp"  alt="Construction site" onerror="this.src='https://placehold.co/150x90?text=Image+1'"/></div>
+          <div class="gallery-thumb" data-img="assets/shelter2-full.jpg"><img src="images/photo_gallery/shelter/pg_shelter_2.webp" alt="Family in new home" onerror="this.src='https://placehold.co/150x90?text=Image+2'"/></div>
+          <div class="gallery-thumb" data-img="assets/shelter3-full.jpg"><img src="images/photo_gallery/shelter/pg_shelter_3.jpeg" alt="Water tap installation" onerror="this.src='https://placehold.co/150x90?text=Image+3'"/></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Training & Employment Programs -->
+  <section class="gallery-section-block gallery-alt" id="training">
+    <div class="gallery-container">
+      <div class="gallery-visual">
+        <img src="images/photo_gallery/digital_training/pg_digital_4.png" alt="Skill training session" class="gallery-main-img" onerror="this.src='https://placehold.co/800x600?text=Training+Gallery'"/>
+      </div>
+      <div class="gallery-content">
+        <h2 class="gallery-title">💼 Training & Employment Programs</h2>
+        <p class="gallery-text">From tailoring and computer literacy to job placement drives – we connect skills to livelihoods. See the focus in a learner’s eyes, the pride of a first pay cheque, and the dignity of economic independence.</p>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb" data-img="assets/training1-full.jpg"><img src="images/photo_gallery/digital_training/pg_digital_1.jpeg" alt="Sewing class" onerror="this.src='https://placehold.co/150x90?text=Image+1'"/></div>
+          <div class="gallery-thumb" data-img="assets/training2-full.jpg"><img src="images/photo_gallery/digital_training/pg_digital_2.jpeg"  alt="Computer training" onerror="this.src='https://placehold.co/150x90?text=Image+2'"/></div>
+          <div class="gallery-thumb" data-img="assets/training3-full.jpg"><img src="images/photo_gallery/digital_training/pg_digital_3.jpeg"  alt="Job fair" onerror="this.src='https://placehold.co/150x90?text=Image+3'"/></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="gallery-lightbox" id="galleryLightbox">
+    <span class="gallery-lightbox-close">&times;</span>
+    <img class="gallery-lightbox-img" id="galleryLightboxImg" alt="Gallery Preview" />
+  </div>
+
+  <!-- PAYMENT MODAL (Identical to main) -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-steps">
+        <span class="modal-step-indicator active" data-step="1"></span>
+        <span class="modal-step-indicator" data-step="2"></span>
+        <span class="modal-step-indicator" data-step="3"></span>
+      </div>
+      <div class="modal-step active" id="step1">
+        <div class="modal-icon">📝</div>
+        <h3>Complete Your Donation</h3>
+        <p class="modal-amount" id="step1Amount">₹1,500</p>
+        <p style="color: var(--color-text-light); margin-bottom: 20px;">Please fill in your details to proceed with your generous donation.</p>
+        <form class="donor-form" id="donorForm">
+          <div class="form-row">
+            <div class="form-group"><label for="donorName">Full Name <span class="required">*</span></label><input type="text" id="donorName" name="name" required placeholder="Enter your name" /></div>
+            <div class="form-group"><label for="donorEmail">Email Address <span class="required">*</span></label><input type="email" id="donorEmail" name="email" required placeholder="your@email.com" /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="donorPhone">Contact Number <span class="required">*</span></label><input type="tel" id="donorPhone" name="phone" required placeholder="+91 XXXXX XXXXX" pattern="[0-9]{10,15}" /></div>
+            <div class="form-group"><label for="donorDob">Date of Birth <span class="required">*</span></label><input type="date" id="donorDob" name="dob" required /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="donorCity">City <span class="required">*</span></label><input type="text" id="donorCity" name="city" required placeholder="Your city" /></div>
+          </div>
+          <div class="form-row">
+          <div class="form-group">
+            <label for="donorPan">PAN Card <span class="required">*</span></label>
+            <input type="text" id="donorPan" name="pan" required placeholder="e.g., AAAPL1234C" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" title="Enter a valid PAN (5 letters, 4 digits, 1 letter)" />
+            <small style="font-size: 0.7rem; color: var(--color-text-light);">Mandatory for 80G tax exemption</small>
+          </div>
+          <div class="form-group">
+            <label for="donorAddress">Full Address <span class="required">*</span></label>
+            <input type="text" id="donorAddress" name="address" required placeholder="Street, area, landmark" />
+          </div>
+        </div>
+
+        <div style="background: var(--color-bg-alt); padding: 12px 16px; border-radius: var(--radius-md); margin: 16px 0; font-size: 0.85rem; color: #1a1a1a; line-height: 1.4;">
+          <p style="margin: 0 0 8px 0;"><strong>📋 Dear donor,</strong> kindly provide your PAN card and address for tax exemption benefits. As per new guidelines of the Income Tax Department, it is mandatory.</p>
+          <p style="margin: 0 0 8px 0;">✅ Your contributions are eligible for tax benefit under Section 80G as <strong>Asha Vatslaya Trust</strong> is registered as a non-profit organization.</p>
+          <p style="margin: 0; font-size: 0.8rem;">
+            <strong>PAN:</strong> AAETN7300A &nbsp;|&nbsp;
+            <strong>Regd. No.:</strong> 2338 &nbsp;|&nbsp;
+            <strong>Niti Aayog:</strong> DL/2024/0463496
+          </p>
+        </div>
+         <div class="form-group">
+            <label for="donorState">State <span class="required">*</span></label>
+            <select id="donorState" name="state" required>
+              <option value="" disabled selected>Select your state</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Ladakh">Ladakh</option>
+              <option value="Puducherry">Puducherry</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="modalCloseBtn">Cancel</button>
+            <button type="submit" class="btn btn-primary">Continue →</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-step" id="step2">
+        <span class="thank-you-icon">🎉</span>
+        <h3 class="thank-you-title">Thank You, <span id="thankYouName">Donor</span>!</h3>
+        <p class="thank-you-message">Your kindness will create real change. Here's a summary of your donation:</p>
+        <div class="thank-you-details">
+          <p><strong>Amount:</strong> <span id="thankYouAmount">₹1,500</span></p>
+          <p><strong>Email:</strong> <span id="thankYouEmail">your@email.com</span></p>
+          <p><strong>Location:</strong> <span id="thankYouLocation">City, State</span></p>
+          <p><strong>Receipt:</strong> Will be sent to your email</p>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="backToFormBtn">← Edit Details</button>
+          <button type="button" class="btn btn-primary" id="proceedToPayBtn">Proceed to Payment →</button>
+        </div>
+      </div>
+      <div class="modal-step" id="step3">
+        <div class="modal-icon">🔒</div>
+        <h3>Secure Payment</h3>
+        <p class="modal-amount" id="step3Amount">₹1,500</p>
+        <p class="thank-you-message">You're about to be redirected to our secure payment gateway. All transactions are encrypted and protected.</p>
+        <div class="payment-cta">
+          <button class="btn btn-primary btn-xl" id="finalPayBtn"><span class="btn-icon">💳</span>Pay <span id="finalPayAmount">₹1,500</span> Now</button>
+          <p class="payment-note"><strong>🔐 Secure & Encrypted</strong><br/>Powered by Razorpay • 80G Tax Exemption Applicable • 100% Funds to Impact</p>
+          <div class="security-badges"><span class="security-badge">🛡️ SSL Encrypted</span><span class="security-badge">✅ PCI Compliant</span><span class="security-badge">🧾 Instant Receipt</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- ==================== DONATE SECTION ==================== -->
+<section class="section donate-section" id="donate">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-tag">Make a Difference</p>
+      <h2 class="section-title">Support a <span class="text-gradient">Life Today</span></h2>
+      <p class="section-description">Every rupee counts. Choose an amount or enter your own. 100% of your donation goes directly to those who need it most.</p>
+    </div>
+    <div class="donate-container reveal">
+      <!-- Trust Indicators -->
+      <div class="trust-indicators">
+        <div class="trust-badge"><span class="trust-icon">🔒</span><span>Secure Donation</span></div>
+        <div class="trust-badge"><span class="trust-icon">💯</span><span>100% Funds to Impact</span></div>
+        <div class="trust-badge"><span class="trust-icon">📊</span><span>Transparent Usage</span></div>
+        <div class="trust-badge"><span class="trust-icon">🧾</span><span>Tax Exemption (80G)</span></div>
+      </div>
+      <!-- Amount Selection -->
+      <div class="donate-amounts">
+          <button class="amount-btn" data-amount="1000">
+            <span class="currency">₹</span>1,000
+          </button>
+          <button class="amount-btn active" data-amount="2000">
+            <span class="currency">₹</span>2,000
+          </button>
+          <button class="amount-btn" data-amount="3000">
+            <span class="currency">₹</span>3,000
+          </button>
+          <button class="amount-btn" data-amount="5000">
+            <span class="currency">₹</span>5,000
+          </button>
+          <button class="amount-btn" data-amount="10000">
+            <span class="currency">₹</span>10,000
+          </button>
+          <button class="amount-btn" data-amount="20000">
+          <span class="currency">₹</span>20,000
+          </button>
+        </div>
+      <!-- Custom Amount -->
+      <div class="custom-amount">
+        <label for="customAmount">Or enter a custom amount:</label>
+        <div class="custom-input-wrapper">
+          <span class="input-currency">₹</span>
+          <input type="number" id="customAmount" placeholder="Enter amount" min="1"/>
+        </div>
+      </div>
+      <!-- Selected Amount Display -->
+      <div class="selected-amount-display">
+        <span>You are donating:</span>
+        <span class="selected-amount" id="selectedAmountDisplay">₹1000</span>
+      </div>
+      <!-- Pay Button -->
+      <button class="btn btn-primary btn-xl pay-btn" id="payBtn">
+        <span class="btn-icon">💛</span>
+        <span class="btn-text">Pay Now</span>
+        <span class="btn-amount" id="payBtnAmount">₹500</span>
+      </button>
+      <p class="donate-note">🔒 This is a demo. No real payment will be processed.</p>
+    </div>
+  </div>
+</section>
+  <!-- FOOTER (Identical to main) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="ngo_logo.jpg" alt="Asha Vatslaya Foundation Logo" class="logo-image-footer" />
+          <span class="logo-text">
+            <span class="logo-main">ASHA VATSLAYA</span>
+            <span class="logo-sub">FOUNDATION</span>
+          </span>
+          <p class="footer-tagline">Bringing hope, changing lives — one act of kindness at a time.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="main.html#home">🏠 Home</a>
+          <a href="mission.html">📋 Our Mission</a>
+          <a href="team.html">👥 Our Team</a>
+          <a href="values.html">✨ Core Values</a>
+          <a href="our_work.html">💼 Our Work</a>
+        </div>
+        <div class="footer-links">
+          <h4>Campaigns</h4>
+          <a href="shiksha-abhiyan.html">📚 Shiksha Abhiyan</a>
+          <a href="swasthya-seva.html">🏥 Swasthya Seva</a>
+          <a href="ghar-ghar-umeed.html">🏠 Ghar Ghar Umeed</a>
+          <a href="sankat-sahayata.html">🚨 Sankat Sahayata</a>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p><strong>📍 Head Office:</strong><br/>Shivam Colony, Near Bhuiphore Mandir<br/>Saraidhela, Dhanbad, Jharkhand<br/>Pin - 828109</p>
+          <p><strong>📞 Phone:</strong><br/>+91 98765 43210<br/>+91 11 2345 6789</p>
+          <p><strong>📧 Email:</strong><br/>info@ashavatslaya.org<br/>volunteer@ashavatslaya.org</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Lightbox functionality specific to Photo Gallery
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightbox = document.getElementById('galleryLightbox');
+      const lightboxImg = document.getElementById('galleryLightboxImg');
+      const closeBtn = document.querySelector('.gallery-lightbox-close');
+      
+      document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          lightboxImg.src = thumb.dataset.img;
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      };
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+      });
+    });
+  </script>
+</body>
+</html>
